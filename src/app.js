@@ -6,6 +6,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from '#routes/auth.routes.js';
 import { timestamp } from 'drizzle-orm/gel-core';
+import securityMiddleware from '#middlewares/security.middleware.js';
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(
     stream: { write: message => logger.info(message.trim()) },
   })
 );
+
+app.use(securityMiddleware);
 
 app.get('/', (req, res) => {
   logger.info('Hello from / route');
