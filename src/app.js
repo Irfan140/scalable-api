@@ -5,8 +5,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import authRoutes from '#routes/auth.routes.js';
-import { timestamp } from 'drizzle-orm/gel-core';
 import securityMiddleware from '#middlewares/security.middleware.js';
+import usersRoutes from '#routes/users.routes.js';
 
 const app = express();
 
@@ -42,5 +42,6 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/users', usersRoutes);
 
 export default app;
