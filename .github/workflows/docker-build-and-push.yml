@@ -13,7 +13,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/scalable-api-app:latest
+  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/kubernetes-basics:latest
 
 jobs:
   build-and-push:
